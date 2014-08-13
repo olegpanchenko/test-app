@@ -1,0 +1,32 @@
+.col-md-offset-4.col-md-4
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    h2.text-center
+      | Edit 
+      = resource_name.to_s.humanize
+    = devise_error_messages!
+
+    .form-group
+      input.form-control autofocus="" placeholder=("Email address") required="" type="email" name="user[email]"
+
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        div
+          | Currently waiting confirmation for: 
+          = resource.unconfirmed_email
+
+    .form-group
+      input.form-control placeholder="Password" type="password"  name="user[password]" autocomplete="off"
+      i leave blank if you don't want to change it
+
+    .form-group
+      input.form-control placeholder="Current Password" type="password" required="" name="user[current_password]" autocomplete="off"
+      i we need your current password to confirm your changes
+
+    button.btn.btn-primary.btn-block type="submit"
+      | Update
+
+  h3.text-center Cancel My Account
+  p
+    | Unhappy?
+    = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger'
+
+  /= link_to "Back", :back

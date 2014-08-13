@@ -1,0 +1,21 @@
+.col-md-offset-4.col-md-4
+  = form_for(resource, as: resource_name, url: session_path(resource_name), html: {role: 'form'}) do |f|
+    h2.text-center Sign in
+    - flash.each do |name, msg|
+      - if msg.is_a?(String)
+        .alert.alert-danger id="flash_#{name}"
+          button type="button" class="close" data-dismiss="alert" x
+          = msg
+
+    .form-group
+      input.form-control autofocus="" placeholder=("Email address") required="" type="email" name="user[email]"
+    .form-group
+      input.form-control placeholder="Password" required="" type="password"  name="user[password]"
+    .checkbox
+      label
+        input type="checkbox" value="user[remember_me]" 
+          | Remember me
+    button.btn.btn-primary.btn-block type="submit"
+      | Sign in
+
+  = render "devise/shared/links"
