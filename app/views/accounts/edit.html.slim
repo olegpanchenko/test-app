@@ -1,0 +1,30 @@
+.col-md-offset-3.col-md-6
+  = form_for(current_user, url: account_path, html: { method: :put }) do |f|
+    h2.text-center
+      | Edit Account Profile
+    - unless current_user.errors.empty?
+      .alert.alert-danger.alert-block
+        button.close type="button" class="" data-dismiss="alert" x
+        = current_user.errors.full_messages.join(',')
+    .form-group
+      = image_tag avatar_url(current_user), class: 'img-thumbnail', style: 'margin-right: 10px;'
+      a.btn.btn-info href="https://gravatar.com" target="_blank"
+        | Change your avatar
+    .form-group
+      input.form-control autofocus="" placeholder=("Email address") required="" type="email" name="user[email]" value="#{current_user.email}"
+
+    .form-group
+      input.form-control placeholder="Password" type="password"  name="user[password]" autocomplete="off"
+      i leave blank if you don't want to change it
+
+    .form-group
+      input.form-control placeholder="Current Password" type="password" required="" name="user[current_password]" autocomplete="off"
+      i we need your current password to confirm your changes
+
+    button.btn.btn-primary.btn-block type="submit"
+      | Update
+
+  h3.text-center Cancel My Account
+  p
+    | Unhappy?
+    = button_to "Cancel my account", registration_path('user'), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger'
