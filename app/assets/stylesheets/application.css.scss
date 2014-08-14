@@ -1,6 +1,28 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "blueimp-gallery.min";
+@import "jQuery-File-Upload-9.7.0/css/jquery.fileupload";
+@import "jQuery-File-Upload-9.7.0/css/jquery.fileupload-ui";
+@import "jQuery-File-Upload-9.7.0/css/style";
 
 .wrapper {
   padding-top: 50px;
+  .fileupload-buttonbar {
+    div {
+      button {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
+  }
+  table {
+    .files {
+      td {
+        button {
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
 }
