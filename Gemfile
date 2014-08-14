@@ -35,3 +35,5 @@ group :test do
   gem "guard-rspec"
   gem "rb-fsevent"
 end
+
+gem 'rails_12factor', group: :production
