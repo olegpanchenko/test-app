@@ -8,4 +8,16 @@ module ApplicationHelper
       "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
     end
   end
+
+  def current_tab? current_tab
+    controller? current_tab.to_s
+  end
+
+  def controller?(*controller)
+    controller.include?(params[:controller])
+  end
+
+  def action?(*action)
+    action.include?(params[:action])
+  end
 end

@@ -10,12 +10,12 @@
       = link_to('Test App', root_path, class: 'navbar-brand')
     .navbar-collapse.collapse
       ul.nav.navbar-nav
-        li.active
+        li class="#{current_tab?(:home) ? 'active' : ''}"
           = link_to('Home', root_path)
-        li
+        li class="#{current_tab?(:photos) ? 'active' : ''}"
           = link_to('Photo Gallery', photos_path)
       ul.nav.navbar-nav.navbar-right
-        li
+        li class="#{current_tab?(:accounts) ? 'active' : ''}"
           = link_to('Profile', edit_account_path)
         li
           = link_to('Logout', destroy_user_session_path, :method => :delete)
