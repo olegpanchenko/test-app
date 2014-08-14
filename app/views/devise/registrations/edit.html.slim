@@ -4,7 +4,10 @@
       | Edit 
       = resource_name.to_s.humanize
     = devise_error_messages!
-
+    .form-group
+      = image_tag avatar_url(resource)
+      a.btn href="https://gravatar.com" target="_blank"
+        | Change your avatar
     .form-group
       input.form-control autofocus="" placeholder=("Email address") required="" type="email" name="user[email]"
 
