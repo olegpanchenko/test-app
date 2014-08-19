@@ -10,4 +10,5 @@ html
   body
     = render partial: 'layouts/partials/navbar' if user_signed_in?
     .container.wrapper
-      = yield
+      .jumbotron
+        = yield

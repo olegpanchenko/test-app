@@ -6,6 +6,9 @@
 @import "jQuery-File-Upload-9.7.0/css/style";
 
 .wrapper {
+  .jumbotron {
+    overflow: hidden;
+  }
   padding-top: 50px;
   .fileupload-buttonbar {
     div {
